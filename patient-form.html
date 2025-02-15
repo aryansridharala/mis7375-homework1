@@ -1,0 +1,350 @@
+<!-- Name: Uma Surya Aryan Sridharala -->
+<!-- Name: Health first solutions -->
+<!-- Name of file: patient-form.html -->
+<!-- Date created: 02/14/2025 -->
+<!-- Date last edited: 02/14/2025 -->
+<!-- Version - 1.0 -->
+<!-- Description: Health first solutions Paitent Registration Page -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health First Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+
+<body>
+    <div class="banner">
+        <img src="./logo.png" alt="company logo">
+        <h1>Health First Solutions</h1>
+        <div class="tagline">Providing Compassionate and Reliable Healthcare Services</div>
+        <h4>Date: <span id="time"></span></h4>
+    </div>
+
+    <div class="form">
+        <form action="thankyou.html">
+            <table class="formtable">
+                <tr>
+                    <th colspan="4">
+                        <h2>Patient Registration Form</h2>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="4">Please fill out the following details as accurately as possible.</td>
+                </tr>
+                <tr>
+                    <td><label for="fname">First Name</label></td>
+                    <td><input type="text" name="fname" id="fname" maxlength="30" placeholder="First Name"></td>
+                    <td><input type="text" name="mname" placeholder="M.I." maxlength="1"></td>
+                    <td><input type="text" name="lname" placeholder="Last Name" maxlength="30"></td>
+                </tr>
+                <tr>
+                    <td><label for="dob">Date of Birth</label></td>
+                    <td colspan="3"><input type="text" name="dob" id="dob" maxlength="10" placeholder="MM/DD/YYYY"></td>
+                </tr>
+                <tr>
+                    <td><label for="ssn">Social Security Number</label></td>
+                    <td colspan="3"><input type="password" name="ssn" id="ssn" maxlength="11" placeholder="Enter SSN"></td>
+                </tr>
+                <tr>
+                    <td><label for="address1">Address Line 1</label></td>
+                    <td colspan="3"><input type="text" name="address1" id="address1" maxlength="30" placeholder="Address"></td>
+                </tr>
+                <tr>
+                    <td><label for="address2">Address Line 2</label></td>
+                    <td colspan="3"><input type="text" name="address2" id="address2" maxlength="30" placeholder="Address (optional)"></td>
+                </tr>
+
+                <!-- State and City Selection -->
+                <tr>
+                    <td><label for="state">State</label></td>
+                    <td>
+                        <select name="state" id="state" onchange="populateCities()">
+                            <option value="">Select State</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </td>
+                    <td class="city-label"><label for="city">City</label></td>
+                    <td>
+                        <select name="city" id="city">
+                            <option value="">Select City</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="zip">Zip Code</label></td>
+                    <td colspan="3"><input type="text" name="zip" id="zip" maxlength="10" placeholder="Enter Zip Code"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="phone">Phone Number</label></td>
+                    <td colspan="3">
+                        <div class="selgroup">
+                            <select name="countryCode" id="countryCode">
+                                <option value="+1">USA (+1)</option>
+                                <option value="+44">UK (+44)</option>
+                                <option value="+91">India (+91)</option>
+                                <option value="+61">Australia (+61)</option>
+                                <option value="+81">Japan (+81)</option>
+                                <option value="+49">Germany (+49)</option>
+                                <option value="+33">France (+33)</option>
+                                <option value="+86">China (+86)</option>
+                                <!-- Add more countries as needed -->
+                            </select>
+                            <input type="tel" name="phone" id="phone" placeholder="Phone Number" maxlength="15">
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td colspan="3"><input type="email" name="email" id="email" placeholder="Email Address"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="desc">Describe Symptoms</label></td>
+                    <td colspan="3"><textarea name="desc" id="desc" rows="3" placeholder="Describe your symptoms..."></textarea></td>
+                </tr>
+
+                <tr>
+                    <td>Have you had:</td>
+                    <td colspan="3">
+                        <input type="checkbox" name="condition" value="chickenpox"> Chicken Pox
+                        <input type="checkbox" name="condition" value="measles"> Measles
+                        <input type="checkbox" name="condition" value="covid19"> Covid-19
+                        <input type="checkbox" name="condition" value="smallpox"> Small Pox
+                        <input type="checkbox" name="condition" value="tetanus"> Tetanus
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td colspan="3">
+                        <input type="radio" name="gender" value="male"> Male
+                        <input type="radio" name="gender" value="female"> Female
+                        <input type="radio" name="gender" value="other"> Other
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Are you vaccinated?</td>
+                    <td colspan="3">
+                        <input type="radio" name="vaccinated" value="yes"> Yes
+                        <input type="radio" name="vaccinated" value="no"> No
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Do you have insurance?</td>
+                    <td colspan="3">
+                        <input type="radio" name="insurance" value="yes"> Yes
+                        <input type="radio" name="insurance" value="no"> No
+                    </td>
+                </tr>
+
+                <!-- Health Scale with number display -->
+                <tr>
+                    <td>Health Scale</td>
+                    <td colspan="3">
+                        <input type="range" name="health" id="healthScale" min="1" max="10" value="5" oninput="updateHealthValue()">
+                        <span class="health-value" id="healthValue">5</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="userid">Desired User ID</label></td>
+                    <td colspan="3"><input type="text" name="userid" id="userid" maxlength="20" placeholder="Enter User ID"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="password">Password</label></td>
+                    <td colspan="3"><input type="password" name="password" id="password" maxlength="20" placeholder="Enter Password"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="confirm_password">Confirm Password</label></td>
+                    <td colspan="3"><input type="password" name="confirm_password" id="confirm_password" maxlength="20" placeholder="Confirm Password"></td>
+                </tr>
+
+                <!-- Healthcare Needs as a List -->
+                <tr>
+                    <td>Healthcare Needs</td>
+                    <td colspan="3">
+                        <input type="checkbox" name="healthcare_needs" value="preventive_care"> Preventive Care<br>
+                        <input type="checkbox" name="healthcare_needs" value="diagnostic_services"> Diagnostic Services<br>
+                        <input type="checkbox" name="healthcare_needs" value="treatment"> Treatment<br>
+                        <input type="checkbox" name="healthcare_needs" value="wellness_programs"> Wellness Programs<br>
+                        <input type="checkbox" name="healthcare_needs" value="chronic_condition_management"> Chronic Condition Management
+                    </td>
+                </tr>
+
+                <!-- Known allergies -->
+                <tr>
+                    <td>Known Allergies</td>
+                    <td colspan="3">
+                        <input type="checkbox" name="allergies" value="pollen"> Pollen
+                        <input type="checkbox" name="allergies" value="dust"> Dust
+                        <input type="checkbox" name="allergies" value="peanuts"> Peanuts
+                        <input type="checkbox" name="allergies" value="shellfish"> Shellfish
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><button type="button" onclick="window.location.reload()">Clear</button></td>
+                    <td><input type="submit" value="Submit"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <footer>
+        <address>
+            Health First Solutions<br>
+            Contact Us: <a href="mailto:contact@healthfirst.com">Email Us</a><br>
+            PO BOX 12345, Anytown, USA<br>
+            <a href="#">Follow us on Twitter</a>
+        </address>
+    </footer>
+
+    <script>
+        var today = new Date();
+        var date = (today.getMonth() + 1) + '/' + today.getDate() + '/' + today.getFullYear();
+        document.getElementById("time").innerHTML = date;
+
+        const citiesByState = {
+            'AL': ['Birmingham', 'Montgomery', 'Mobile', 'Huntsville'],
+    'AK': ['Anchorage', 'Juneau', 'Fairbanks', 'Sitka'],
+    'AZ': ['Phoenix', 'Tucson', 'Mesa', 'Scottsdale'],
+    'AR': ['Little Rock', 'Fayetteville', 'Fort Smith', 'Springdale'],
+    'CA': ['Los Angeles', 'San Francisco', 'San Diego', 'Sacramento'],
+    'CO': ['Denver', 'Colorado Springs', 'Aurora', 'Fort Collins'],
+    'CT': ['Bridgeport', 'New Haven', 'Stamford', 'Hartford'],
+    'DE': ['Wilmington', 'Dover', 'Newark', 'Middletown'],
+    'FL': ['Miami', 'Orlando', 'Tampa', 'Jacksonville'],
+    'GA': ['Atlanta', 'Savannah', 'Augusta', 'Columbus'],
+    'HI': ['Honolulu', 'Hilo', 'Kailua', 'Kaneohe'],
+    'ID': ['Boise', 'Meridian', 'Nampa', 'Idaho Falls'],
+    'IL': ['Chicago', 'Aurora', 'Naperville', 'Springfield'],
+    'IN': ['Indianapolis', 'Fort Wayne', 'Evansville', 'South Bend'],
+    'IA': ['Des Moines', 'Cedar Rapids', 'Davenport', 'Sioux City'],
+    'KS': ['Wichita', 'Overland Park', 'Kansas City', 'Topeka'],
+    'KY': ['Louisville', 'Lexington', 'Bowling Green', 'Owensboro'],
+    'LA': ['New Orleans', 'Baton Rouge', 'Shreveport', 'Lafayette'],
+    'ME': ['Portland', 'Lewiston', 'Bangor', 'Auburn'],
+    'MD': ['Baltimore', 'Annapolis', 'Frederick', 'Rockville'],
+    'MA': ['Boston', 'Worcester', 'Springfield', 'Lowell'],
+    'MI': ['Detroit', 'Grand Rapids', 'Ann Arbor', 'Lansing'],
+    'MN': ['Minneapolis', 'Saint Paul', 'Rochester', 'Duluth'],
+    'MS': ['Jackson', 'Gulfport', 'Southaven', 'Hattiesburg'],
+    'MO': ['Kansas City', 'Saint Louis', 'Springfield', 'Columbia'],
+    'MT': ['Billings', 'Missoula', 'Great Falls', 'Bozeman'],
+    'NE': ['Omaha', 'Lincoln', 'Bellevue', 'Grand Island'],
+    'NV': ['Las Vegas', 'Reno', 'Henderson', 'Sparks'],
+    'NH': ['Manchester', 'Nashua', 'Concord', 'Dover'],
+    'NJ': ['Newark', 'Jersey City', 'Paterson', 'Elizabeth'],
+    'NM': ['Albuquerque', 'Santa Fe', 'Las Cruces', 'Rio Rancho'],
+    'NY': ['New York City', 'Buffalo', 'Rochester', 'Albany'],
+    'NC': ['Charlotte', 'Raleigh', 'Greensboro', 'Durham'],
+    'ND': ['Fargo', 'Bismarck', 'Grand Forks', 'Minot'],
+    'OH': ['Columbus', 'Cleveland', 'Cincinnati', 'Toledo'],
+    'OK': ['Oklahoma City', 'Tulsa', 'Norman', 'Broken Arrow'],
+    'OR': ['Portland', 'Salem', 'Eugene', 'Gresham'],
+    'PA': ['Philadelphia', 'Pittsburgh', 'Allentown', 'Erie'],
+    'RI': ['Providence', 'Cranston', 'Warwick', 'Pawtucket'],
+    'SC': ['Charleston', 'Columbia', 'North Charleston', 'Mount Pleasant'],
+    'SD': ['Sioux Falls', 'Rapid City', 'Aberdeen', 'Brookings'],
+    'TN': ['Nashville', 'Memphis', 'Knoxville', 'Chattanooga'],
+    'TX': ['Houston', 'Dallas', 'Austin', 'San Antonio'],
+    'UT': ['Salt Lake City', 'West Valley City', 'Provo', 'West Jordan'],
+    'VT': ['Burlington', 'South Burlington', 'Rutland', 'Barre'],
+    'VA': ['Virginia Beach', 'Norfolk', 'Chesapeake', 'Richmond'],
+    'WA': ['Seattle', 'Spokane', 'Tacoma', 'Vancouver'],
+    'WV': ['Charleston', 'Huntington', 'Morgantown', 'Parkersburg'],
+    'WI': ['Milwaukee', 'Madison', 'Green Bay', 'Kenosha'],
+    'WY': ['Cheyenne', 'Casper', 'Laramie', 'Gillette']
+        };
+
+        function populateCities() {
+            var stateSelect = document.getElementById("state");
+            var citySelect = document.getElementById("city");
+            var selectedState = stateSelect.value;
+
+            citySelect.innerHTML = '<option value="">Select City</option>';
+
+            if (selectedState && citiesByState[selectedState]) {
+                var cities = citiesByState[selectedState];
+                cities.forEach(function(city) {
+                    var option = document.createElement("option");
+                    option.value = city;
+                    option.text = city;
+                    citySelect.appendChild(option);
+                });
+            }
+        }
+
+        function updateHealthValue() {
+            var healthScale = document.getElementById("healthScale");
+            var healthValue = document.getElementById("healthValue");
+            healthValue.innerHTML = healthScale.value;
+        }
+    </script>
+</body>
+
+</html>
+
